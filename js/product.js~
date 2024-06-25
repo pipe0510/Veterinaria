@@ -1,0 +1,30 @@
+
+var db = firebase.firestore();
+
+function leerproducto() {
+	
+	//document.getElementById("leerprod").innerHTML = '';
+	
+	db.collection("producto").onSnapshot((querySnapshot) => {
+	
+	document.getElementById('leerprod').innerHTML = '';		
+		
+    querySnapshot.forEach((doc) => {
+        console.log(`${doc.id} => ${doc.data()}`);
+        document.getElementById('leerprod').innerHTML += `
+		       	 <tr>
+		       	 	<td>${doc.data().Codigo}</td>
+						<td>${doc.data().Nombre}</td>
+						<td>${doc.data().Marca}</td>
+						<td>$ ${doc.data().V_compra}.oo</td>
+						<td>$ ${doc.data().V_venta}.oo</td>
+					
+					</tr> 
+		        `;  
+        
+    });
+});
+
+}
+
+leerproducto();

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veterinaria(nombre pendiente)</title>
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="shortcut icon" href="img/veterinario.png"  />
+    <!-- firebase -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+<script src="js/conexion.js"> </script>
+<script src="js/pedidos.js"> </script>
+<script>
+  var db=firebase.firestore();
+  var storage= firebase.storage();
+</script>
+    
+    <link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+/>
+</head>
+<body>
+    <header style="background-color: #8042f3;" class="navbar sticky-top  flex-md-nowrap p-0 shadow" >
+      <div>
+        <img class="mb-4" src="img/veterinario.png" alt="" width="50" >
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="dashboard.html">Veterinaria</a>
+      </div>
+        <ul class="navbar-nav flex-row d-md-none">
+          <li class="nav-item text-nowrap" style="padding-right: 15px;">
+            <button style="background-image: url(../plantilla/img/lupa.png); background-size: 45px;" id="lupa" class="nav-link px-3 text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSearch" aria-controls="navbarSearch" aria-expanded="false" aria-label="Toggle search">
+              <svg class="bi"><use xlink:href="#search"/></svg>
+            </button>
+          </li>
+          <li class="nav-item text-nowrap">
+            <button style=" background-image: url(../plantilla/img/menu-desplegable.png); background-size: 50px;" id="menu2" class="nav-link px-3 text-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+              <svg class="bi"><use xlink:href="#list"/></svg>
+            </button>
+          </li>
+        </ul>
+      
+        <div id="navbarSearch" class="navbar-search w-100 collapse">
+          <input class="form-control w-100 rounded-0 border-0" type="text" placeholder="Search" aria-label="Search">
+        </div>
+      </header>
+      
+      <div class="container-fluid">
+        <div class="row">
+          <div class="sidebar border border-right col-md-3 col-lg-2 p-0 bg-body-tertiary">
+            <div class="offcanvas-md offcanvas-end bg-body-tertiary" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+              <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="sidebarMenuLabel">Veterinaria</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
+
+                <!-- menu -->
+                <div id="menu"></div>
+                <hr class="my-3">
+      
+                <ul class="nav flex-column mb-auto">
+                  <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center gap-2" href="#">
+                      <svg class="bi"><use xlink:href="#gear-wide-connected"/></svg>
+                      Ajustes
+                      <img src="img/configuraciones.png" width="25">
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center gap-2" onclick="cerrar()">
+                      <svg class="bi"><use xlink:href="#door-closed"/></svg>
+                      Cerrar Sesion
+                      <img src="img/cerrar-sesion.png" width="25">
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+      
+          <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            </div>
+            <div class="col-lg-10" id="contenido">
+              <h6>Pedidos</h6>
+              <hr>
+
+            <br><br>
+           
+            <br><br>
+            <!-- visualización productos -->
+            <div class="table-p"></div>
+            <table width="95%" class="table table-hover">
+                            <th>Fecha</th>
+                            <th>Productos</th>
+                            <th>cliente</th>
+                            <th>Total $</th>
+                            <th>Finalizado</th>
+                            <th>Acciones</th>
+                        </tr>
+                        <tbody id="leerpedidos">
+                            
+                        </tbody>
+                    </table>	
+            
+            </div>
+        </div>
+         <!--<meta http-equiv="Refresh" content="5;url=index.html">-->
+         
+        </center>
+    </body>
+          </main>
+        </div>
+      </div>
+</body>
+<script src="js/bootstrap/bootstrap.bundle.js"></script>
+<script src="js/menu.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script src="js/modulos/bloqueo.js"></script>
+<script src="js/modulos/cerrarsesion.js"></script>
+</html>

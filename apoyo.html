@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title></title>
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+/>
+</head>
+<body>
+<ul class="nav flex-column">
+<li class="nav-item">
+  <a  class="nav-link d-flex align-items-center gap-2 active" aria-current="page" href="#" onmouseover="heart(1)" onmouseout="heart(2)">
+    <svg class="bi"><use xlink:href="#house-fill"/></svg>
+    Registrar mascota
+    <img src="img/nueva_mascota.png" width="25" id="r"  onmouseover="heart(1)" onmouseout="heart(2)" >
+  </a>
+</li>
+<li class="nav-item">
+  <a class="nav-link d-flex align-items-center gap-2" href="#">
+    <svg class="bi"><use xlink:href="#file-earmark"/></svg>
+    Registrar Cita
+    <img src="img/informe-medico.png" width="25" id="t"  onmouseover="heart(3)" onmouseout="heart(4)">
+  </a>
+</li>
+<li class="nav-item">
+  <a class="nav-link d-flex align-items-center gap-2" href="#">
+    <svg class="bi"><use xlink:href="#cart"/></svg>
+    Registrar producto
+    <img src="img/medicina.png" width="25" id="y"  onmouseover="heart(5)" onmouseout="heart(6)">
+  </a>
+ 
+</li>
+<li class="nav-item">
+  <a class="nav-link d-flex align-items-center gap-2" href="#">
+    <svg class="bi"><use xlink:href="#cart"/></svg>
+    Usuarios
+    <img src="img/usuario.png" width="25" id="y"  onmouseover="heart(5)" onmouseout="heart(6)">
+  </a>
+ 
+</li>
+<li class="nav-item">
+  <a class="nav-link d-flex align-items-center gap-2" href="#">
+    <svg class="bi"><use xlink:href="#cart"/></svg>
+    facturacion
+    <img src="img/factura.png" width="25" id="y"  onmouseover="heart(5)" onmouseout="heart(6)">
+  </a>
+ 
+</li>
+
+</ul>
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+body{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:100vh;
+  background: #262433;
+}
+.menu3{
+  position:relative;
+ width:280px;
+  height:280px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.menu3 .toggle{
+  position:relative;
+  height:60px;
+  width:60px;
+  background:#fff;
+  border-radius:50%;
+  box-shadow:0 3px 4px rgba(0,0,0,0.15);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#333;
+  font-size:2rem;
+  cursor:pointer;
+  transition:1.25s;
+  z-index:5;
+}
+.menu3.active .toggle{
+  transform:rotate(360deg);
+  box-shadow: 0 6px 8px rgba(0,0,0,0.15),
+    0 0 0 2px #333,
+    0 0 0 8px #fff;
+}
+.menu3 li{
+  position:absolute;
+  left:0;
+  list-style:none;
+  transition:0.5s;
+  transform:rotate(calc(360deg/8 * var(--i)));
+  transform-origin:140px;
+  scale:0;
+  transition-delay: calc(0.05s * var(--i));
+}
+.menu3.active li{
+  scale:1;
+}
+.menu3 li a{
+  position:relative;
+  display:flex;
+ transform:rotate(calc(360deg/-8 * var(--i)));
+  width:60px;
+  height:60px;
+  background-color:#FFF;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  font-size:1.75rem;
+  color:var(--clr);
+   box-shadow:0 3px 4px rgba(0,0,0,0.15);
+  transition:0.5s;
+}
+.menu3 li:hover a{
+  font-size:2.5rem;
+  box-shadow:0 0 0 2px var(--clr),
+    0 0 0 6px #fff;
+}
+</style>
+
+<div class="menu3">
+  <div class="toggle">
+    <ion-icon name="share-social"></ion-icon>
+    </div>
+  
+      <li style="--i:0;--clr:#1877f2">
+      <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+    </li>
+    <li style="--i:1;--clr:#25d366">
+      <a href="#"><ion-icon name="logo-whatsapp"></ion-icon></a>
+    </li>
+    <li style="--i:2;--clr:#1da1f2">
+      <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+    </li>
+     <li style="--i:3;--clr:#FF5733">
+      <a href="#"><ion-icon name="logo-reddit"></ion-icon></a>
+    </li>
+    <li style="--i:4;--clr:#0a66c2">
+      <a href="#"><ion-icon name="logo-linkedin"></ion-icon></a>
+    </li>
+    <li style="--i:5;--clr:#c32aa3">
+      <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+    </li>
+    <li style="--i:6;--clr:#1b1e21">
+      <a href="#"><ion-icon name="logo-github"></ion-icon></a>
+    </li>
+    <li style="--i:7;--clr:#ff0000">
+      <a href="#"><ion-icon name="logo-youtube"></ion-icon></a>
+    </li>
+</div>
+<!-- partial -->
+  <script src='https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js'></script>
+<script src='https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js'></script><script  > const menu3=document.querySelector(".menu3");
+  const toggle=document.querySelector(".toggle");
+  toggle.addEventListener("click",()=>{
+    menu3.classList.toggle("active");
+  })</script>
+
+
+
+
+
+
+<center>
+
+<!-- <h1 class="animate__animated animate__heartBeat animate__infinite	">Heartbeat</h1> -->
+<!-- <div class="animate__animated animate__bounce animate__repeat-2">Example</div> -->
+</center>
+</body>
+<script src="js/menu.js"></script>
+<script src="js/modulos/login.js"></script>
+<script src="js/modulos/bloqueo.js"></script>
+
+</html>
